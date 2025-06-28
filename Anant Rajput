@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>robotiX | Engineering AI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@500;700&family=Bebas+Neue&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      background: #000;
+      color: #ddd;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: #00bfff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    nav a {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #ddd;
+      margin-left: 30px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+    nav a:hover { color: #00bfff; }
+
+    section {
+      padding: 100px 50px;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1586773860414-0cfbc2b18c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px 40px;
+      border-radius: 10px;
+      letter-spacing: 2px;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1.2s ease;
+      line-height: 1.2;
+    }
+    .hero p {
+      margin-top: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1.5s ease;
+      white-space: nowrap; /* Founder line ek hi line mein */
+    }
+    .hero.show h2 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero.show p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal {
+      opacity: 0;
+      transition: all 1.2s ease;
+    }
+    .reveal.show-left {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal.show-right {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal.show-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left { transform: translateX(-50px); }
+    .reveal-right { transform: translateX(50px); }
+    .reveal-up { transform: translateY(50px); }
+    .reveal-down { transform: translateY(-50px); }
+
+    .about, .products, .tech, .news, .contact {
+      background: #111;
+      margin: 30px 0;
+      border-radius: 10px;
+      color: #ddd;
+    }
+    .about h2, .products h2, .tech h2, .news h2, .contact h2 {
+      color: #00bfff;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+    }
+    .products img, .tech img {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px;
+      border-radius: 10px;
+      transition: transform 0.5s ease;
+    }
+    .products img:hover, .tech img:hover {
+      transform: scale(1.05);
+    }
+    .section-content {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    .contact a {
+      display: inline-block;
+      color: #00bfff;
+      text-decoration: none;
+      margin: 10px 20px;
+      border: 1px solid #00bfff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .contact a:hover {
+      background: #00bfff;
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      font-size: 14px;
+      margin-top: 50px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>robotiX</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#tech">Technology</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Engineering Intelligent<br>Robotics & Advanced AI</h2>
+    <p>Founder: Anant Rajput | Co-founder: Diya Vats</p>
+  </section>
+
+  <section class="about reveal reveal-left" id="about">
+    <div class="section-content">
+      <h2>About robotiX</h2>
+      <p>robotiX is dedicated to revolutionizing the robotics and AI industry. We design intelligent robots that collaborate with humans and transform industries worldwide.</p>
+    </div>
+  </section>
+
+  <section class="products reveal reveal-right" id="products">
+    <div class="section-content">
+      <h2>Our Robots</h2>
+      <img src="https://images.unsplash.com/photo-1655651268886-18651e74a53f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Robot Arm">
+      <img src="https://images.unsplash.com/photo-1629904853690-26f8f1624a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Robot Lab">
+      <p>We develop advanced service robots, industrial robots, and collaborative AI-driven machines for a wide range of applications.</p>
+    </div>
+  </section>
+
+  <section class="tech reveal reveal-up" id="tech">
+    <div class="section-content">
+      <h2>Our Technology</h2>
+      <img src="https://images.unsplash.com/photo-1605810230434-62a924c84cba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Chip">
+      <img src="https://images.unsplash.com/photo-1629904853411-4628ba7ed9d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Sensors">
+      <p>Our robots use cutting-edge sensors, AI algorithms, and cloud connectivity to deliver next-generation performance and safety.</p>
+    </div>
+  </section>
+
+  <section class="news reveal reveal-left" id="news">
+    <div class="section-content">
+      <h2>Latest News</h2>
+      <p>Stay tuned for updates on our latest robots, partnerships, and research breakthroughs. We are pushing the boundaries of what robots can do.</p>
+    </div>
+  </section>
+
+  <section class="contact reveal reveal-right" id="contact">
+    <div class="section-content">
+      <h2>Contact Us</h2>
+      <a href="https://linkedin.com/in/anantrz" target="_blank">LinkedIn: Anant Rajput</a>
+      <a href="mailto:anant7@yahoo.com">Email: anant7@yahoo.com</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 robotiX. All rights reserved.
+  </footer>
+
+  <script>
+    // Hero section load
+    window.addEventListener('load', () => {
+      document.querySelector('.hero').classList.add('show');
+    });
+
+    // Scroll animation observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains('reveal-left')) {
+            entry.target.classList.add('show-left');
+          } else if (entry.target.classList.contains('reveal-right')) {
+            entry.target.classList.add('show-right');
+          } else if (entry.target.classList.contains('reveal-up')) {
+            entry.target.classList.add('show-up');
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
